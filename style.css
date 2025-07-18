@@ -1,0 +1,447 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000000;
+}
+
+#starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+.constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.constellation.active {
+  opacity: 1;
+}
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* adjust for taller or shorter fade */
+  pointer-events: none;
+  z-index: 10; /* should be above starfield but below overlays */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+}
+
+
+    .svg-overlay1 {
+      position: absolute;
+      top: 40%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+        .svg-overlay2 {
+      position: absolute;
+      top: 40%;
+      left: 75%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+        .svg-overlay3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+
+    
+.svg-overlay2 svg path 
+{
+  stroke: white;
+  stroke-width: 0;
+  fill: none;
+  stroke-dasharray: 100 100;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 0 transparent);
+    transition: 
+    stroke 0.5s ease, 
+    stroke-width 0.5s ease, 
+    stroke-dashoffset 0.5s ease,
+    filter 0.5s ease;
+}
+
+.svg-overlay2:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.2;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+.svg-overlay2 svg path.hovered 
+{
+  stroke-width: 0.2;
+  stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 3px #ffff00)
+          drop-shadow(0 0 6px #ffff00)
+          drop-shadow(0 0 10px #ffff00); /* stacked for stronger glow */
+  animation: smoothColorPulse 4s ease-in-out infinite;
+}
+
+.svg-overlay2 svg path.exiting 
+{
+  animation: exitStroke 0.5s ease forwards;
+}
+
+
+/* EINSTINE */
+.svg-overlay1 svg path 
+{
+  stroke: white;
+  stroke-width: 0;
+  fill: none;
+  stroke-dasharray: 100 100;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 0 transparent);
+    transition: 
+    stroke 0.5s ease, 
+    stroke-width 0.5s ease, 
+    stroke-dashoffset 0.5s ease,
+    filter 0.5s ease;
+}
+
+.svg-overlay1:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.1;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+.svg-overlay1 svg path.hovered 
+{
+  stroke-width: 0.1;
+  stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 3px #ffff00)
+          drop-shadow(0 0 6px #ffff00)
+          drop-shadow(0 0 10px #ffff00); /* stacked for stronger glow */
+  animation: smoothColorPulse 4s ease-in-out infinite;
+}
+
+.svg-overlay1 svg path.exiting 
+{
+  animation: exitStroke 0.5s ease forwards;
+}
+
+
+
+/* 
+DOSTOVOSKY */
+
+
+.svg-overlay3 svg path 
+{
+  stroke: white;
+  stroke-width: 0;
+  fill: none;
+  stroke-dasharray: 100 100;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 0 transparent);
+    transition: 
+    stroke 0.5s ease, 
+    stroke-width 0.5s ease, 
+    stroke-dashoffset 0.5s ease,
+    filter 0.5s ease;
+}
+
+.svg-overlay3:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.2;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+.svg-overlay3 svg path.hovered 
+{
+  stroke-width: 0.2;
+  stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 3px #ffff00)
+          drop-shadow(0 0 6px #ffff00)
+          drop-shadow(0 0 10px #ffff00); /* stacked for stronger glow */
+  animation: smoothColorPulse 4s ease-in-out infinite;
+}
+
+.svg-overlay3 svg path.exiting 
+{
+  animation: exitStroke 0.5s ease forwards;
+}
+
+
+
+@keyframes enterStroke 
+{
+  from 
+  {
+    stroke-width: 0;
+    stroke-dashoffset: 100;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  to 
+  {
+    stroke-width: 0.3;
+    stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 6px #ffffffcc);
+  }
+}
+
+
+
+@keyframes exitStroke 
+{
+  from 
+  {
+    stroke-width: 0.3;
+    stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 6px #ffffffcc);
+  }
+  to 
+  {
+    stroke-width: 0;
+    stroke-dashoffset: 100;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+}
+
+@keyframes smoothColorPulse 
+{
+  0%, 100% {
+    filter: drop-shadow(0 0 4px #ffff00)
+            drop-shadow(0 0 6px #ffff00);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px #ffff00)
+            drop-shadow(0 0 16px #ffff00);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .svg-overlay3 svg {
+    width: 50vw;
+    height: auto;
+  }
+
+
+.svg-overlay1 svg {
+    width: 60vw;
+    height: auto;
+  }
+
+.svg-overlay2 svg {
+    width: 40vw;
+    height: auto;
+  }
+
+  .svg-overlay1 {
+    top: 40%;
+    left: 25%;
+  }
+
+  .svg-overlay2 {
+    top: 45%;
+    left: 75%;
+  }
+
+  .svg-overlay3 {
+    top: 30%;
+    left: 70%;
+  }
+
+
+  .svg-overlay1:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.6;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+
+.svg-overlay2:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.8;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+.svg-overlay3:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.5;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+
+  body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 140vh; /* adjust for taller or shorter fade */
+  pointer-events: none;
+  z-index: 10; /* should be above starfield but below overlays */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+}
+}
+
+.Hero
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+    background: transparent;
+    z-index: -10;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+.Hero-texts
+{
+    z-index: 20;
+    position: fixed;
+    pointer-events: none;
+}
+
+.Hero-texts h1
+{
+font-family: "Noto Serif", serif;
+  font-size: 70px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffff00;
+  margin: 0; 
+}
+
+.Hero-texts h6
+{
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0; 
+  
+}
+
+.Hero-texts h6 {
+  transition: all 0.6s ease;
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.Hero-texts h6.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  filter: blur(5px);
+}
+
+.Hero-texts h1 {
+  font-weight: bold;
+  text-align: center;
+  color: transparent;
+  background: radial-gradient(circle at center, #ffff00, #ffd000, #ffff00);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: background-position 0.1s ease;
+}
+.download_button {
+  position: absolute;
+  top: calc(50% + 90px);
+  left: 50%;
+  transform: translate(-50%, -50%); /* ✅ Center both X and Y */
+  z-index: 30;
+  width: 100%; /* ✅ Stretch full width */
+  display: flex;
+  justify-content: center; /* ✅ Center the button */
+  pointer-events: auto;
+}
+
+.holographic-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      background: white;
+      border-radius: 12px;
+      text-decoration: none;
+      color: black;
+      font-family: sans-serif;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .holographic-button:hover {
+
+    }
+
+    .holographic-button span::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        0deg,
+        transparent,
+        transparent 30%,
+        rgba(255, 255, 0, 0.3)
+      );
+      transform: rotate(-45deg);
+      transition: all 0.5s ease;
+      opacity: 0;
+      z-index: 100;
+    }
+
+    .holographic-button:hover span::before {
+      opacity: 1;
+      transform: rotate(-45deg) translateY(100%);
+    }
+
+    .holographic-button svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      z-index: 2;
+    }
+
+    .holographic-button span {
+      position: relative;
+      z-index: 2;
+    }

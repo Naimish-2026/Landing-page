@@ -1,0 +1,95 @@
+.svg-overlay2 
+{
+      position: absolute;
+      top: 40%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: auto;
+}
+    
+.svg-overlay2 svg path 
+{
+  stroke: white;
+  stroke-width: 0;
+  fill: none;
+  stroke-dasharray: 100 100;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 0 transparent);
+    transition: 
+    stroke 0.5s ease, 
+    stroke-width 0.5s ease, 
+    stroke-dashoffset 0.5s ease,
+    filter 0.5s ease;
+}
+
+.svg-overlay2:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.2;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+.svg-overlay2 svg path.hovered 
+{
+  stroke-width: 0.2;
+  stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 3px #ffff00)
+          drop-shadow(0 0 6px #ffff00)
+          drop-shadow(0 0 10px #ffff00); /* stacked for stronger glow */
+  animation: smoothColorPulse 4s ease-in-out infinite;
+}
+
+.svg-overlay2 svg path.exiting 
+{
+  animation: exitStroke 0.5s ease forwards;
+}
+
+
+
+@keyframes enterStroke 
+{
+  from 
+  {
+    stroke-width: 0;
+    stroke-dashoffset: 100;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  to 
+  {
+    stroke-width: 0.3;
+    stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 6px #ffffffcc);
+  }
+}
+
+
+
+@keyframes exitStroke 
+{
+  from 
+  {
+    stroke-width: 0.3;
+    stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 6px #ffffffcc);
+  }
+  to 
+  {
+    stroke-width: 0;
+    stroke-dashoffset: 100;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+}
+
+@keyframes smoothColorPulse 
+{
+  0%, 100% {
+    filter: drop-shadow(0 0 4px #ffff00)
+            drop-shadow(0 0 6px #ffff00);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px #ffff00)
+            drop-shadow(0 0 16px #ffff00);
+  }
+}
