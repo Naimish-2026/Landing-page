@@ -245,77 +245,6 @@ DOSTOVOSKY */
 
 
 
-@media (max-width: 768px) {
-  .svg-overlay3 svg {
-    width: 50vw;
-    height: auto;
-  }
-
-
-.svg-overlay1 svg {
-    width: 60vw;
-    height: auto;
-  }
-
-.svg-overlay2 svg {
-    width: 40vw;
-    height: auto;
-  }
-
-  .svg-overlay1 {
-    top: 40%;
-    left: 25%;
-  }
-
-  .svg-overlay2 {
-    top: 45%;
-    left: 75%;
-  }
-
-  .svg-overlay3 {
-    top: 30%;
-    left: 70%;
-  }
-
-
-  .svg-overlay1:hover svg path 
-{
-  stroke: #ffff0075; /* yellow */
-  stroke-width: 0.6;
-  stroke-dashoffset: 0;
-  filter: drop-shadow(0 0 10px #ffff00aa);
-}
-
-
-.svg-overlay2:hover svg path 
-{
-  stroke: #ffff0075; /* yellow */
-  stroke-width: 0.8;
-  stroke-dashoffset: 0;
-  filter: drop-shadow(0 0 10px #ffff00aa);
-}
-
-.svg-overlay3:hover svg path 
-{
-  stroke: #ffff0075; /* yellow */
-  stroke-width: 0.5;
-  stroke-dashoffset: 0;
-  filter: drop-shadow(0 0 10px #ffff00aa);
-}
-
-
-  body::after {
-  content: "";
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 140vh; /* adjust for taller or shorter fade */
-  pointer-events: none;
-  z-index: 10; /* should be above starfield but below overlays */
-  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
-}
-}
 
 .Hero
 {
@@ -336,15 +265,7 @@ DOSTOVOSKY */
     pointer-events: none;
 }
 
-.Hero-texts h1
-{
-font-family: "Noto Serif", serif;
-  font-size: 70px;
-  font-weight: bold;
-  text-align: center;
-  color: #ffff00;
-  margin: 0; 
-}
+
 
 .Hero-texts h6
 {
@@ -370,6 +291,7 @@ font-family: "Noto Serif", serif;
 }
 
 .Hero-texts h1 {
+  font-size: 70px;
   font-weight: bold;
   text-align: center;
   color: transparent;
@@ -445,3 +367,98 @@ font-family: "Noto Serif", serif;
       position: relative;
       z-index: 2;
     }
+
+
+@media (max-width: 768px) {
+  .svg-overlay3 svg {
+    width: 50vw;
+    height: auto;
+  }
+
+
+.svg-overlay1 svg {
+    width: 60vw;
+    height: auto;
+  }
+
+.svg-overlay2 svg {
+    width: 40vw;
+    height: auto;
+  }
+
+  .svg-overlay1 {
+    top: 40%;
+    left: 25%;
+  }
+
+  .svg-overlay2 {
+    top: 45%;
+    left: 75%;
+  }
+
+  .svg-overlay3 {
+    top: 30%;
+    left: 70%;
+  }
+
+
+  .svg-overlay1:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.6;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+
+.svg-overlay2:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.8;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+.svg-overlay3:hover svg path 
+{
+  stroke: #ffff0075; /* yellow */
+  stroke-width: 0.5;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px #ffff00aa);
+}
+
+
+  body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 140vh; /* adjust for taller or shorter fade */
+  pointer-events: none;
+  z-index: 10; /* should be above starfield but below overlays */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+}
+
+
+.Hero-texts h1
+{
+font-family: "Noto Serif", serif;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffff00;
+  margin: 0; 
+}
+
+.Hero-texts h6
+{
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0; 
+  
+}
+
+}
