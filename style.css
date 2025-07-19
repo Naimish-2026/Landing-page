@@ -246,15 +246,6 @@ DOSTOVOSKY */
 
 
 
-.Hero
-{
-    height: 100vh;
-    display: flex;
-    justify-content: center; /* horizontal */
-    align-items: center;     /* vertical */
-    background: transparent;
-    z-index: -10;
-}
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -265,7 +256,15 @@ DOSTOVOSKY */
     pointer-events: none;
 }
 
-
+.Hero-texts h1
+{
+font-family: "Noto Serif", serif;
+  font-size: 70px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffff00;
+  margin: 0; 
+}
 
 .Hero-texts h6
 {
@@ -291,7 +290,6 @@ DOSTOVOSKY */
 }
 
 .Hero-texts h1 {
-  font-size: 70px;
   font-weight: bold;
   text-align: center;
   color: transparent;
@@ -454,11 +452,21 @@ font-family: "Noto Serif", serif;
 .Hero-texts h6
 {
   font-family: "Noto Serif", serif;
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
   color: #ffffff;
   margin: 0; 
   
 }
 
+}
+
+.Hero
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+    background: transparent;
+    z-index: -10;
 }
